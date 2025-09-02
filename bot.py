@@ -1633,7 +1633,8 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             save_users(users)
             kb = [[InlineKeyboardButton("Купить след месяц",callback_data=f"pay_grade_{grade}_{next_month}")],
                   [InlineKeyboardButton("Главное меню",callback_data="main_menu")]]
-            await query.message.reply_text(f"Вы закончили месяц номер {month}")
+            markup = InlineKeyboardMarkup(kb)
+            await query.message.reply_text(f"Вы закончили месяц номер {month}",reply_markup=markup)
 
             return
 
